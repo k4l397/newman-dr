@@ -1,13 +1,17 @@
 {
   "name": "newman-dr",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Newman Directory Runner - Run all collections in a sub directory",
   "main": "src/cli.js",
   "bin": {
-    "newman-dr": "bin/newman-dr.js"
+    "newman-dr": "./bin/newman-dr.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/k4l397/newman-dr"
   },
   "author": "Kyle Welch",
   "license": "The Unlicense",
