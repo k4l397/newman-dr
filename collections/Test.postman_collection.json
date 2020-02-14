@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "b6494951-65c9-41d4-88da-51fecc54c800",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "71835ae5-39b2-47e1-83f7-a6994a2b7b51",
+						"exec": [
+							"pm.test(\"Check Status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}/",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

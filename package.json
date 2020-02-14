@@ -1,0 +1,21 @@
+{
+  "name": "newman-dr",
+  "version": "1.0.0",
+  "description": "Newman Directory Runner - Run all collections in a sub directory",
+  "main": "src/cli.js",
+  "bin": {
+    "newman-dr": "bin/newman-dr"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Welch",
+  "license": "The Unlicense",
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "esm": "^3.2.25",
+    "loglevel": "^1.6.7",
+    "newman": "^4.5.7",
+    "path": "^0.12.7"
+  }
+}
