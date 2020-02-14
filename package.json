@@ -4,7 +4,7 @@
   "description": "Newman Directory Runner - Run all collections in a sub directory",
   "main": "src/cli.js",
   "bin": {
-    "newman-dr": "bin/newman-dr"
+    "newman-dr": "bin/newman-dr.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
