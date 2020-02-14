@@ -14,7 +14,7 @@ const optionDefs = [
 
 export const cli = async (args) => {
   try {
-    args.forEach((arg) => arg.replace(/['"]+/g, ''))
+    args.forEach((arg) => arg = arg.replace(/['"]+/g, ''))
     const options = commandLineArgs(optionDefs, args);
     log.debug(options);
 

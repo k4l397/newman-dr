@@ -1,6 +1,6 @@
 {
   "name": "newman-dr",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Newman Directory Runner - Run all collections in a sub directory",
   "main": "src/cli.js",
   "bin": {
