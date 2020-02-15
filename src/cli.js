@@ -22,10 +22,22 @@ const parseOptions = (args) => {
   )
 }
 
+// checks if file / dir exists
+const validateOptions = (options) => {
+  const obj = Object.values(options).map(val => file.access(val, fs.constants.F_OK));
+  return obj
+}
+
 export const cli = async (args) => {
   try {
     const options = parseOptions(args);
     log.debug(options);
+
+    Promise.all(validateOptions(options)).then(
+      () => log.debug("Options are valid.")
+    ).catch(
+      (err) => log.error(err)
+    );
 
     if(!options.collections) throw "Please provide a collection directory.";
     const collections = await file.readdir(options.collections);
