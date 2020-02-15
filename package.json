@@ -14,7 +14,7 @@
     "url": "git://github.com/k4l397/newman-dr"
   },
   "author": "Kyle Welch",
-  "license": "The Unlicense",
+  "license": "Unlicense",
   "dependencies": {
     "command-line-args": "^5.1.1",
     "esm": "^3.2.25",

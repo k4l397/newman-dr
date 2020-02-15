@@ -4,7 +4,7 @@ import { promises as file } from 'fs';
 import path from 'path';
 import commandLineArgs from 'command-line-args';
 import log from 'loglevel';
-log.setDefaultLevel(log.levels.ERROR);
+log.setDefaultLevel(log.levels.DEBUG);
 
 const optionDefs = [
   { name:'collections', alias: 'c', type: String, defaultOption:true
@@ -12,9 +12,16 @@ const optionDefs = [
   { name:'environment', alias: 'e', type: String }
 ]
 
+const parseOptions = (args) => {
+  return commandLineArgs(
+    optionDefs,
+    args.map(arg => arg.replace('"', ''))
+  )
+}
+
 export const cli = async (args) => {
   try {
-    const options = commandLineArgs(optionDefs, args);
+    const options = parseOptions(args);
     log.debug(options);
 
     if(!options.collections) throw "Please provide a collection directory.";
