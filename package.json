@@ -1,6 +1,6 @@
 {
   "name": "newman-dr",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Newman Directory Runner - Run all collections in a sub directory",
   "main": "src/cli.js",
   "bin": {
@@ -22,5 +22,6 @@
     "loglevel": "^1.6.7",
     "newman": "^4.5.7",
     "path": "^0.12.7"
-  }
+  },
+  "keywords": ["newman", "directory", "runner", "collections", "cli"]
 }
