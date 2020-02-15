@@ -4,7 +4,10 @@ import { promises as file } from 'fs';
 import path from 'path';
 import commandLineArgs from 'command-line-args';
 import log from 'loglevel';
-log.setDefaultLevel(log.levels.DEBUG);
+log.setDefaultLevel(
+  process.env.NODE_ENV === 'dev' ?
+   log.levels.DEBUG : log.levels.WARN
+);
 
 const optionDefs = [
   { name:'collections', alias: 'c', type: String, defaultOption:true
