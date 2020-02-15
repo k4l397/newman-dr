@@ -4,10 +4,7 @@ This is a javascript tool that wraps the newman postman client and runs all coll
 
 ## Installation
 
-1. Clone this Repo
-2. `npm install`
-3. `npm link` (creates a symlink to the utility on your system)
-4. Alternatively - `npm run newman-dr <args>`
+`npm install newman-dr`
 
 ## Usage
 
