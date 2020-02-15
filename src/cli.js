@@ -28,9 +28,9 @@ const validateOptions = (options) => {
   return obj
 }
 
-const runCollections = (collections, environment) => {
+const runCollections = (collections, environment, collectionsParentDir) => {
   collections.forEach((collection) => {
-    const collectionPath = path.join(options.collections, collection)
+    const collectionPath = path.join(collectionsParentDir, collection)
     newman.run({
       collection: collectionPath,
       reporters: 'cli',
@@ -53,7 +53,7 @@ export const cli = async (args) => {
     if(!options.collections) throw "Please provide a collection directory.";
     const collections = await file.readdir(options.collections);
     
-    runCollections(collections, options.environment);
+    runCollections(collections, options.environment, options.collections);
   } 
   catch(e) {
     log.error(e.message);
