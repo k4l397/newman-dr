@@ -28,34 +28,32 @@ const validateOptions = (options) => {
   return obj
 }
 
+const runCollections = (collections, environment) => {
+  collections.forEach((collection) => {
+    const collectionPath = path.join(options.collections, collection)
+    newman.run({
+      collection: collectionPath,
+      reporters: 'cli',
+      environment: environment ? environment : null
+    }, (err) => {
+      log.info(`${collectionPath}: ${err ? err.name : 'ok'}!`);
+    })
+  });
+}
+
 export const cli = async (args) => {
   try {
     const options = parseOptions(args);
     log.debug(options);
 
-    Promise.all(validateOptions(options)).then(
-      () => log.debug("Options are valid.")
-    ).catch(
-      (err) => log.error(err)
-    );
+    await Promise.all(validateOptions(options))
+    .then(() => log.debug("Options are valid."))
+    .catch((err) => { throw err });
 
     if(!options.collections) throw "Please provide a collection directory.";
     const collections = await file.readdir(options.collections);
-
-    if(options.environment) {
-      await file.access(options.environment, fs.constants.F_OK);
-    }
-
-    collections.forEach((collection) => {
-      const collectionPath = path.join(options.collections, collection)
-      newman.run({
-        collection: collectionPath,
-        reporters: 'cli',
-        environment: options.environment
-      }, (err) => {
-        log.info(`${collectionPath}: ${err ? err.name : 'ok'}!`);
-      })
-    });
+    
+    runCollections(collections, options.environment);
   } 
   catch(e) {
     log.error(e.message);
